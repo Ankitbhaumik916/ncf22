@@ -1,0 +1,74 @@
+# ==============================================================
+# .gitignore for Health-Conscious Food Recommendation System
+# ==============================================================
+
+# === Data Files (Large/Unnecessary) ===
+*.csv
+*.xlsx
+*.xls
+*.xpt
+*.pkl
+*.pickle
+
+# === Model Files ===
+*.pth
+*.pt
+*.h5
+*.joblib
+*.pkl
+
+# === Embeddings and Large Numpy Arrays ===
+*.npy
+*.npz
+
+# === Logs and Results ===
+logs/
+results/
+rl_logs/
+rl_best_model/
+
+# === Raw Data ===
+data/
+NHANES_Data/
+RAW_DATA/
+raw_data/
+
+# === Python Cache ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# === Virtual Environment ===
+venv/
+env/
+ENV/
+.venv
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# === Jupyter Notebook ===
+.ipynb_checkpoints/
+*.ipynb
+
+# === Temporary Files ===
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# === Output Files ===
+*.txt
+output/
+*.out
+
+# === Git ===
+.git/
+.gitignore
