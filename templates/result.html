@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meal Plan Result</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Meal Plan</h1>
+    <p>User: <strong>{{ user_id }}</strong> | Target: <strong>{{ target_calories | default('profile default') }}</strong> kcal</p>
+    <a href="/" class="link">← Back</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Meal Time</th>
+          <th>Recipe</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Carbs</th>
+          <th>Sugar</th>
+          <th>Fiber</th>
+          <th>Why Recommended</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+          <tr>
+            <td>{{ r['Meal Time'] }}</td>
+            <td>{{ r['Recipe'] }}</td>
+            <td>{{ r['Calories'] }}</td>
+            <td>{{ r['Protein'] }}</td>
+            <td>{{ r['Carbs'] }}</td>
+            <td>{{ r['Sugar'] }}</td>
+            <td>{{ r['Fiber'] }}</td>
+            <td>{{ r['Why Recommended'] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

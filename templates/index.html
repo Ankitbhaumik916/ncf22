@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCF22 Meal Plan Generator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>NCF22 Meal Plan Generator</h1>
+    <p>Enter a user ID and optional calorie target to generate a daily meal plan.</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="/generate" class="card">
+      <label for="user_id">User ID</label>
+      <input type="text" id="user_id" name="user_id" placeholder="e.g., 650" required>
+
+      <label for="target_calories">Target Calories (optional)</label>
+      <input type="number" id="target_calories" name="target_calories" placeholder="e.g., 2085" step="1" min="1000" max="4000">
+
+      <button type="submit">Generate Meal Plan</button>
+    </form>
+
+    <h2>Sample Users</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Diabetic</th>
+          <th>Target Calories</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for u in users %}
+          <tr>
+            <td>{{ u.user_id }}</td>
+            <td>{{ u.is_diabetic }}</td>
+            <td>{{ u.target_calories | round(0) }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
